@@ -1,0 +1,212 @@
+body{
+    margin: 0 auto;
+    padding:0;
+    font-family:sans-serif Verdana;
+    font-size:18px;
+}
+#main {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #dccdcd;
+}
+#topTitle {
+    height: 100px;
+    border-bottom: 2px solid;
+}
+#logo{float:left;width:30%}
+#title {
+    float: right;
+    width: 69%;
+}
+
+#sofia{
+    float:right;
+    width: 30%;
+}
+#textTitle{
+    float:left;
+    width:60%
+}
+#textTitle p {
+    margin: 0px;
+    font-style: italic;
+    font-family: sans-serif;
+    color: #44658c;
+}
+#title h2 {
+    margin-bottom: 0px;
+    font-size: 20pt;
+    color: #434d94;
+}
+.logImg {
+    width: 190px;
+    height: 96px;
+    border-radius: 26px;
+}
+.usernameclass {
+    font-size: 13pt;
+    font-family: sans-serif;
+}
+.radios{}
+#topdiv {
+    height: 145px;
+    border-bottom: 2px solid;
+    text-align: center;
+    margin-top: 10px;
+}
+#UserlogIn{
+    margin-left: 85px;
+    padding: 5px 10px;
+}
+input#txt {
+    height: 30px;
+    width: 250px;
+    border: 1px solid #464242;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12pt;
+    margin-bottom: 5px;
+}
+#btnConnect {
+    border: none;
+    background-color: #948d8d;
+    width: 100px;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 13pt;
+}
+#btnImageFile{}
+#send {
+    border: none;
+    background-color: #948d8d;
+    width: 100px;
+    height: 55px;
+    border-radius: 4px;
+    font-size: 13pt;
+    float: right;
+}
+#chatTop {
+    height: 32px;
+    background-color: #8686e6;
+}
+.btnClass {
+    border: none;
+    background-color: #948d8d;
+    width: 100px;
+    height: 32px;
+    border-radius: 4px;
+    font-size: 13pt;
+    float: right;
+}
+#middleTop{
+    background-color:#44658c;
+    height: 100px;
+    border-bottom: 2px solid;
+}
+textarea#txt1 {
+    height: 45px;
+    width: 577px;
+    border: 1px solid #464242;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 18pt;
+    padding: 5px 10px;
+}
+.errorUserEntry {
+    color: blue;
+}
+#allMsz {
+    background-color: #9A9ABF;
+    height: 200px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    margin-top: 20px;
+}
+#dvmsg{}
+#middle {
+    height: 502px;
+    background-color: #72756c;
+    overflow: hidden;
+}
+#left {
+    float: left;
+    width: 290px;
+    background-color: #9a9ae6;
+    border: none;
+    border-radius: 4px;
+    height: 75%;
+    margin-left: 5px;
+}
+ul#msg {
+    max-height: 195px;
+    overflow: auto;
+}
+#left h3 {
+    text-align: center;
+    color: #14831c;
+}
+#right {
+    float: right;
+    width: 700px;
+    padding: 10px;
+    background-color: #9a9ae6;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    height: 71%;
+}
+
+#detailsBox{
+    overflow:hidden;
+}
+.clear{
+    content: '';
+    clear:both;
+    overflow:hidden;
+}
+#leftDetails{}
+.img1 {
+    width: 190px;
+    height: 175px;
+    float: left;
+    margin: 20px 20px 0px 20px;
+    padding: 5px 10px;
+    border: 3px solid #ffffff;
+    border-radius: 5px;
+}
+#lefttxt {
+    margin: 5px;
+    padding: 1px 8px;
+}
+
+#lefttxt h2{
+    margin-bottom:0px;
+}
+
+#lefttxt p{
+    margin:0px;
+}
+#rightDetails{}
+#img2{
+
+}
+
+#postBoxes{
+    margin:5px;
+}
+#righttxt{}
+#footer {
+    margin-top:10px;
+    height: 90px;
+    background-color: #c899d8;
+    text-align:center;
+}
+#footcontent h2 {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+}
+#footcontent p {
+    margin: 0px;
+}

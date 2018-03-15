@@ -1,0 +1,18 @@
+G:\Home Practice\chatroom\chatroom\bin\chatroom.dll.config
+G:\Home Practice\chatroom\chatroom\bin\chatroom.dll
+G:\Home Practice\chatroom\chatroom\bin\chatroom.pdb
+G:\Home Practice\chatroom\chatroom\obj\Debug\chatroom.csprojResolveAssemblyReference.cache
+G:\Home Practice\chatroom\chatroom\obj\Debug\chatroom.dll
+G:\Home Practice\chatroom\chatroom\obj\Debug\chatroom.pdb
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\bin\chatroom.dll.config
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\bin\chatroom.dll
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\bin\chatroom.pdb
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\obj\Debug\chatroom.csprojResolveAssemblyReference.cache
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\obj\Debug\chatroom.dll
+C:\Users\Tanvir\Desktop\chatroom\chatroom\chatroom\obj\Debug\chatroom.pdb
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\bin\chatroom.dll.config
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\bin\chatroom.dll
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\bin\chatroom.pdb
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\obj\Debug\chatroom.csprojResolveAssemblyReference.cache
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\obj\Debug\chatroom.dll
+F:\5th exam writting\htmlwork\1230052(Tanvir Ahmmed)\chatroom\chatroom\obj\Debug\chatroom.pdb

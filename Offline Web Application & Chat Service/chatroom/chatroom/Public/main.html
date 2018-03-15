@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Client</title>
+    <script src="Scripts/socket.io.js">
+    </script>
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <link href="Styles/main.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        var socket;
+        var room;
+        $("#btnConnect").click(function () {
+            if ($('#txt').val().length == 0) {
+                $(".errorUserEntry").show();
+                return;
+            }
+            else {
+                $('#detailsBox').hide();
+                $(".errorUserEntry").hide();
+                $('#topdiv').hide();
+                $('#topTitle').hide();
+                $('#middle').show();
+            };
+            socket = io.connect("http://localhost:3000");
+            socket.on("message", function (data) {
+                $("#msg").append("<li>" + data.from + " : " + data.content + " </li>");
+            });
+            socket.on('addimage', function (data) {
+                console.log(data.content);
+                var types = (data.content).toString().split(":")[1].split(";")[0];
+                var imageType = /image.*/;
+                if (types.match(imageType)) {
+                    $('#msg').append('<br/><b>' + data.from + ' : </b>' +
+                        '<img width="120" height="120" style="border-radius:10px" src="' + data.content + ' " />');
+                }
+                else {
+                    try { 
+                        $('#msg').append('<br/><b>' + data.from + ': </b>' + '<a target="_blank" href="'
+                            + (data.content) +
+                        '">files:' + types + '</a>');
+                    }
+                    catch (ex) {
+                        console.log(ex.message);
+                    }
+                }
+                console.log(types);
+            })
+          
+            if ($("#r1").is(":checked"))
+                room = $("#r1").val();
+            else if ($("#r2").is(":checked"))
+                room = $("#r2").val();
+            else if ($("#r3").is(":checked"))
+                room = $("#r3").val();
+            socket.emit("adduser", { name: $("#txt").val(), group: room });
+            $("#txt").val('');
+
+            socket.on('updateUser', function (users) {
+                $("#uselist").empty();
+                for (var i = 0; i < users.length; i++) {
+                    $("#uselist").append("<li>" + users[i] + "</li>");
+                }
+            });
+
+            $('#btnImageFile').on('change', function (e) {
+                var file = e.originalEvent.target.files[0];
+                var textType = /text.*/;
+                var imageType = /image.*/;
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    socket.emit('userImage', evt.target.result);
+                };
+                if (
+                    file.type.match(textType)) {
+                    reader.readAsText(file);
+                }
+                else if (file.type.match(imageType)) {
+                    reader.readAsDataURL(file);
+                }
+                else { }
+            })
+           
+        });           
+        $("#send").click(function () {
+            socket.emit("chat", $("#txt1").val());
+            $("#txt1").val('');
+            return false;
+        });
+        $("#disconnect").click(function () {
+            socket.disconnect();
+            $("#topdiv").show();
+            $("#middle").hide();
+            $('#topTitle').show();
+            $('#detailsBox').show();
+        })
+    });
+</script>
+</head>
+<body>
+    <div id="main">
+        <div id="topTitle">
+            <div id="logo">
+                <img class="logImg" src="Images/chatImg.png" alt="logo" />
+                <!--<img class="logImg" src="Images/Online-Chat.png" alt="logo" />-->
+            </div>
+            <div id="title">
+                <div id="textTitle">
+                    <h2>Title will go here</h2>
+                    <p>Title will go here to describe something about chat</p>
+                </div>
+                <div id="sofia">
+                    <img class="logImg" src="Images/sofia.jpg" alt="Sofia Photo" />
+                </div>                
+            </div>
+        </div>
+        <div id="topdiv">
+            <div id="UserlogIn">
+                <label for="txt" class="usernameclass"  >User Name:</label>
+                <input type="text" id="txt" name="txt" />
+                <span class="errorUserEntry" style="display:none;">Provide user name..</span>
+              <div class="usernameclass">
+                    <label>Room: *</label>
+                    <input type="radio" value="Room1" name="room" id="r1" checked /><label for="r1">Room1</label>
+                    <input type="radio" value="Room2" name="room" id="r2" /><label for="r2">Room2</label>
+                    <input type="radio" value="Room3" name="room" id="r3" /><label for="r3">Room3</label>
+                </div><br/>
+                <input type="button" id="btnConnect" value="Connect" />
+            </div>
+        </div>
+        <div id="middle" style="display:none">
+            <div id="middleTop">
+                <img class="logImg" src="Images/chaticon.png" />
+            </div>
+            <div id="left">
+                <h3>All user</h3>
+                <ul id="uselist"></ul>
+            </div>
+            <div id="right">
+                <div id="chatTop">
+                    <div id="titless">
+                    </div>
+                    <input class="btnClass" type="button" id="disconnect" value="Disconnect" />
+                </div>
+                <div id="allMsz">
+                    <ul id="msg"></ul>
+                </div>
+                <div id="dvmsg">
+                    <textarea id="txt1" name="txt"></textarea><input class="btnClass" type="button" id="send" value="Send" /><br />
+                    <input type="file" id="btnImageFile" name="btnImageFile" />
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="detailsBox">
+            <div id="postBoxes">
+                <div id="leftDetails">
+                    <img class="img1" src="Images/tranvirnpoloc.jpg" alt="Photo Wiil GO HERE" />
+                    <div id="lefttxt">
+                        <h2>Post Title</h2>
+                        <p>Sophia is often presented to the public in a way that theatrically 
+                        overstates its level of general intelligence; according to Quartz, 
+                        experts who have reviewed the robot's open-source code state that Sophia is 
+                        best categorized as a chatbot with a face.[9] Many experts in the AI field 
+                        disapprove of Sophia's overstated presentation. Ben Goertzel, the chief scientist 
+                        for the company that made Sophia, acknowledges that it is "not ideal" that some think of Sophia as having human-equivalent 
+                        intelligence, </p>
+                        <p>Sophia is conceptually similar to the computer program ELIZA,
+                         which was one of the first attempts at simulating a human conversation.
+                        [8] The software has been programmed to give pre-written responses to specific 
+                        questions or phrases, like a chatbot. These responses are used to create the illusion 
+                        that the robot is able to understand conversation, including stock answers to questions 
+                        like "Is the door open or
+                         shut?"[9] The information is shared in a cloud net
+                        work which allows input and responses to be analysed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+           <div id="footcontent">
+               <h2>Our chat service</h2>
+               <p><i>chatonline@net</i></p>
+           </div> 
+        </footer>
+    </div>
+</body>
+</html>
